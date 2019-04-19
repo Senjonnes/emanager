@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>E-Manager | Dashboard</title>
+    <meta name="description" content="A simple employee dashboard" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- vector map CSS -->
+    <link href="vendors/vectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+	
+	<!-- Morris Charts CSS -->
+    <link href="vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
+	
+    <!-- Toggles CSS -->
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+
+    <!-- Toastr CSS -->
+    <link href="vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="loader-pendulums"></div>
+    </div>
+    <!-- /Preloader -->
+	
+	<!-- HK Wrapper -->
+	<div class="hk-wrapper hk-vertical-nav hk-icon-nav">
+
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
+            <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="dashboard1.html">
+                <img class="brand-img d-inline-block" src="dist/img/logo-light.png" alt="brand" />
+            </a>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item">
+                    <a id="navbar_search_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="search"></i></span></a>
+                </li>
+                <li class="nav-item">
+                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                </li>
+                <!-- Navigation active begins -->
+                <li class="nav-item dropdown dropdown-notifications">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="bell"></i></span><span class="badge-wrap"><span class="badge badge-red badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">View all</a></h6>
+                        <div class="notifications-nicescroll-bar">
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span> accepted your invitation to join the team</div>
+                                            <div class="notifications-time">12m</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">New message received from <span class="text-dark text-capitalize">Misuko Heid</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-primary rounded-circle">
+													<span class="initial-wrap"><span><i class="zmdi zmdi-account font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">You have a follow up with<span class="text-dark text-capitalize"> Brunette head</span> on <span class="text-dark text-capitalize">friday, dec 19</span> at <span class="text-dark">10.00 am</span></div>
+                                            <div class="notifications-time">2d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-success rounded-circle">
+													<span class="initial-wrap"><span>A</span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Application of <span class="text-dark text-capitalize">Sarah Williams</span> is waiting for your approval</div>
+                                            <div class="notifications-time">1w</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-warning rounded-circle">
+													<span class="initial-wrap"><span><i class="zmdi zmdi-notifications font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Last 2 days left for the project</div>
+                                            <div class="notifications-time">15d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Navigation active ends-->
+
+                <!-- Chats Notification begins-->
+                <li class="nav-item dropdown dropdown-notifications">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="message-circle"></i></span><span class="badge-wrap"><span class="badge badge-red badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-header">Messages <a href="chats.html" class="">Chats</a><a href="forum.html" class="">Forum</a></h6>
+                        <div class="notifications-nicescroll-bar">
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span> commented on your post in the<span class="text-dark text-capitalize"> Forum</span></div>
+                                            <div class="notifications-time">12m</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="text-dark text-capitalize">Misuko Heid <br><span class="notifications-text">Hi dear, have you checked...</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="text-dark text-capitalize">Odeyemi Oluwaseun <br><span class="notifications-text">Do you know we have an incomplete project</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-success rounded-circle">
+													<span class="initial-wrap"><span>A</span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="text-dark text-capitalize">Olusegun Obasanjo <br><span class="notifications-text">Don't forget to drop those letters on my table</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-warning rounded-circle">
+													<span class="initial-wrap"><span><i class="zmdi zmdi-notifications font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">You have <span class="text-dark text-capitalize">250<span class="notifications-text"> new messages in the </span><span class="text-dark text-capitalize">Forum</span></span></div>
+                                            <div class="notifications-time">5h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Chats Notification ends-->
+
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media">
+                            <div class="media-img-wrap">
+                                <div class="avatar">
+                                    <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img rounded-circle">
+                                </div>
+                                <span class="badge badge-success badge-indicator"></span>
+                            </div>
+                            <div class="media-body">
+                                <span>Odeyemi Oluwaseun<i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
+                        <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="sub-dropdown-menu show-on-hover">
+                            <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
+                            <div class="dropdown-menu open-left-side">
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <form role="search" class="navbar-search">
+            <div class="position-relative">
+                <a href="javascript:void(0);" class="navbar-search-icon"><span class="feather-icon"><i data-feather="search"></i></span></a>
+                <input type="text" name="example-input1-group2" class="form-control" placeholder="Type here to Search">
+                <a id="navbar_search_close" class="navbar-search-close" href="#"><span class="feather-icon"><i data-feather="x"></i></span></a>
+            </div>
+        </form>
+        <!-- /Top Navbar -->
+
+        <!-- Vertical Nav -->
+        <nav class="hk-nav hk-nav-dark">
+            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
+            <div class="nicescroll-bar">
+                <div class="navbar-nav-wrap">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item pb-15 active">
+                            <a class="nav-link-single" href="dashboard.html">
+                                <span class="feather-icon"><i data-feather="clipboard"></i></span>
+                                <span class="nav-link-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link-single" href="crm.html">
+                                <span class="feather-icon"><i data-feather="activity"></i></span>
+                                <span class="nav-link-text">CRM</span>
+                            </a>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link-single" href="project.html">
+                                <span class="feather-icon"><i data-feather="layers"></i></span>
+                                <span class="nav-link-text">Project</span>
+                            </a>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
+                                <span class="feather-icon"><i data-feather="package"></i></span>
+                                <span class="nav-link-text">Application</span>
+                                <span class="badge badge-brown badge-pill">4</span>
+                            </a>
+                            <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="chats.html">Chat</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="forum.html">Forum</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gallery.html">Gallery</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="file-manager.html">File Manager</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="calendar.html">Calendar</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#auth_drp">
+                                <span class="feather-icon"><i data-feather="lock"></i></span>
+                                <span class="nav-link-text">Authentication</span>
+                            </a>
+                            <ul id="auth_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="signup.html">
+                                                Sign Up
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="login.html">
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#recover_drp">
+                                                    Recover Password
+                                                </a>
+                                            <ul id="recover_drp" class="nav flex-column collapse collapse-level-2">
+                                                <li class="nav-item">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="forgot-password.html">Forgot Password</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="reset-password.html">Reset Password</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="lock-screen.html">Lock Screen</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="404.html">Error 404</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_drp">
+                                <span class="feather-icon"><i data-feather="file-text"></i></span>
+                                <span class="nav-link-text">Pages</span>
+                            </a>
+                            <ul id="pages_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="profile.html">Profile</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoice.html">Invoice</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="activity.html">Activity</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="faq.html">Faq</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#settings_drp">
+                                <span class="feather-icon"><i data-feather="settings"></i></span>
+                                <span class="nav-link-text">Settings</span>
+                            </a>
+                            <ul id="settings_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#nav_drp">
+                                                Navigation
+                                            </a>
+                                            <ul id="nav_drp" class="nav flex-column collapse collapse-level-2">
+                                                <li class="nav-item">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a id="nav_light_select" class="nav-link" href="javascript:void(0);">Light Mode</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a id="nav_dark_select" class="nav-link" href="javascript:void(0);">Dark Mode</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#top_nav_drp">
+                                                Top Navigation
+                                            </a>
+                                            <ul id="top_nav_drp" class="nav flex-column collapse collapse-level-2">
+                                                <li class="nav-item">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a id="navtop_light_select" class="nav-link" href="javascript:void(0);">Light Mode</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a id="navtop_dark_select" class="nav-link" href="javascript:void(0);">Dark Mode</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link-single" href="email.html">
+                                <span class="feather-icon"><i data-feather="mail"></i></span>
+                                <span class="nav-link-text">Email</span>
+                            </a>
+                        </li>
+                        <li class="nav-item pb-15">
+                            <a class="nav-link-single" href="company.html">
+                                <span class="feather-icon"><i data-feather="home"></i></span>
+                                <span class="nav-link-text">Company</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+        <!-- /Vertical Nav -->
+		
+        <!-- Setting Panel -->
+        <div class="hk-settings-panel">
+            <div class="nicescroll-bar position-relative">
+                <div class="settings-panel-wrap">
+                    <div class="settings-panel-head">
+                        <img class="brand-img d-inline-block align-top" src="dist/img/logo-light.png" alt="brand" />
+                        <a href="javascript:void(0);" id="settings_panel_close" class="settings-panel-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
+                    </div>
+                    <hr>
+                    <h6 class="mb-5">Navigation</h6>
+                    <p class="font-14">Menu comes in two modes: dark & light</p>
+                    <div class="button-list hk-nav-select mb-10">
+                        <button type="button" id="nav_light_select" class="btn btn-outline-light btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-sun-o"></i> </span><span class="btn-text">Light Mode</span></button>
+                        <button type="button" id="nav_dark_select" class="btn btn-outline-primary btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-moon-o"></i> </span><span class="btn-text">Dark Mode</span></button>
+                    </div>
+                    <hr>
+                    <h6 class="mb-5">Top Nav</h6>
+                    <p class="font-14">Choose your liked color mode</p>
+                    <div class="button-list hk-navbar-select mb-10">
+                        <button type="button" id="navtop_light_select" class="btn btn-outline-primary btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-sun-o"></i> </span><span class="btn-text">Light Mode</span></button>
+                        <button type="button" id="navtop_dark_select" class="btn btn-outline-light btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-moon-o"></i> </span><span class="btn-text">Dark Mode</span></button>
+                    </div>
+                    <hr>
+                    <button id="reset_settings" style="color: white;" class="btn bg-violet-dark-5 btn-block btn-reset mt-30">Reset</button>
+                </div>
+            </div>
+            <img class="d-none" src="dist/img/logo-light.png" alt="brand" />
+            <img class="d-none" src="dist/img/logo-dark.png" alt="brand" />
+        </div>
+        <!-- /Setting Panel -->
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            <!-- Container -->
+            <div class="container mt-xl-50 mt-sm-30 mt-15">
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <div>
+                        <h2 class="hk-pg-title font-weight-600 mb-10">My Dashboard</h2>
+                    </div>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hk-row">
+                            <div class="col-lg-4">
+                                <div class="card card-refresh">
+                                    <div class="refresh-container">
+                                        <div class="loader-pendulums"></div>
+                                    </div>
+                                    <div class="card-header card-header-action">
+                                        <h6>Welcome Steve</h6>
+                                        <small>You have 4 new messages</small>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark font-14 ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Lurem Ipsum is simply yummy</p>
+                                                            <p class="font-12 ml-10">9:30 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark font-14 ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Lurem Ipsum is simply yummy</p>
+                                                            <p class="font-12 ml-10">9:30 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark font-14 ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Lurem Ipsum is simply yummy</p>
+                                                            <p class="font-12 ml-10">9:30 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-25">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark font-14 ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Lurem Ipsum is simply yummy</p>
+                                                            <p class="font-12 ml-10">9:30 AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header card-header-action">
+                                        <div>
+                                            <h5>My Tasks</h5>
+                                            <p class="font-14 pt-5 text-dark">Last Updated 1 hour ago</p>
+                                        </div>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-md-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">New Tasks</a>
+                                                    <a class="dropdown-item" href="#">Old Tasks</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">View Projects</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center card-body card-header card-header-action">
+                                        <div class="mr-auto">
+                                            <p class="font-14 text-dark">Pending Tasks</p>
+                                            <h6 class="pt-5 text-dark-100 font-weight-600">9</h6>
+                                        </div>
+                                        <div class="mr-auto pl-10" style="border-left: 1px solid #b6b6b6!important;">
+                                            <p class="font-14 text-dark">Completed Tasks</p>
+                                            <h6 class="pt-5 text-dark-100 font-weight-600">52</h6>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-10 mb-0  shadow-none mx-20">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-row-reverse text-white mb-5">
+                                                <p class="p-2 text-right text-white rounded px-10 py-0 font-12 bg-gradient-danger">High Priority</p>
+                                            </div>
+                                            <div class="hk-legend">
+                                                <div class="pb-10">
+                                                    <div class="m-0 pa-0">
+                                                        <div class="custom-control custom-radio radio-danger font-12">
+                                                            <input type="radio" id="customRadio1" name="customRadio1" checked class="custom-control-input">
+                                                            <label class="custom-control-label text-dark font-weight-600" for="customRadio1">GK Project design Changes in Manage roles module</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-list task-list-items mt-10">
+                                                <div>
+                                                    <i class="fa fa-comments pr-10"></i><span>1<i class="fa fa-paperclip pl-20 pr-10"></i>2</span>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-red rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-10 mb-0  shadow-none mx-20">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-row-reverse text-white mb-5">
+                                                <p class="p-2 text-right text-white rounded px-10 py-0 font-12 bg-gradient-info">Low Priority</p>
+                                            </div>
+                                            <div class="hk-legend">
+                                                <div class="pb-10">
+                                                    <div class="m-0 pa-0">
+                                                        <div class="custom-control custom-radio font-12">
+                                                            <input type="radio" id="customRadio2" name="customRadio2" checked class="custom-control-input">
+                                                            <label class="custom-control-label text-dark font-weight-600" for="customRadio2">GK Project design Changes in Manage roles module</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-list task-list-items mt-10">
+                                                <div>
+                                                    <i class="fa fa-comments pr-10"></i><span>1<i class="fa fa-paperclip pl-20 pr-10"></i>2</span>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-red rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-10 mb-0  shadow-none mx-20">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-row-reverse text-white mb-5">
+                                                <p class="p-2 text-right text-white rounded px-10 py-0 font-12 bg-gradient-warning">Medium Priority</p>
+                                            </div>
+                                            <div class="hk-legend">
+                                                <div class="pb-10">
+                                                    <div class="m-0 pa-0">
+                                                        <div class="custom-control custom-radio radio-warning font-12">
+                                                            <input type="radio" id="customRadio3" name="customRadio3" checked class="custom-control-input">
+                                                            <label class="custom-control-label text-dark font-weight-600" for="customRadio3">GK Project design Changes in Manage roles module</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-list task-list-items mt-10">
+                                                <div>
+                                                    <i class="fa fa-comments pr-10"></i><span>1<i class="fa fa-paperclip pl-20 pr-10"></i>2</span>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-red rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-10 mb-0  shadow-none mx-20">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-row-reverse text-white mb-5">
+                                                <p class="p-2 text-right text-white rounded px-10 py-0 font-12 bg-gradient-info">Low Priority</p>
+                                            </div>
+                                            <div class="hk-legend">
+                                                <div class="pb-10">
+                                                    <div class="m-0 pa-0">
+                                                        <div class="custom-control custom-radio font-12">
+                                                            <input type="radio" id="customRadio4" name="customRadio4" checked class="custom-control-input">
+                                                            <label class="custom-control-label text-dark font-weight-600" for="customRadio4">GK Project design Changes in Manage roles module</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-list task-list-items mt-10">
+                                                <div>
+                                                    <i class="fa fa-comments pr-10"></i><span>1<i class="fa fa-paperclip pl-20 pr-10"></i>2</span>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-red rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-10 mb-20  shadow-none mx-20">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-row-reverse text-white mb-5">
+                                                <p class="p-2 text-right text-white rounded px-10 py-0 font-12 bg-gradient-danger">High Priority</p>
+                                            </div>
+                                            <div class="hk-legend">
+                                                <div class="pb-10">
+                                                    <div class="m-0 pa-0">
+                                                        <div class="custom-control custom-radio radio-danger font-12">
+                                                            <input type="radio" id="customRadio5" name="customRadio5" checked class="custom-control-input">
+                                                            <label class="custom-control-label text-dark font-weight-600" for="customRadio5">GK Project design Changes in Manage roles module</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-list task-list-items mt-10">
+                                                <div>
+                                                    <i class="fa fa-comments pr-10"></i><span>1<i class="fa fa-paperclip pl-20 pr-10"></i>2</span>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-red rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="card card-refresh">
+                                    <div class="refresh-container">
+                                        <div class="loader-pendulums"></div>
+                                    </div>
+                                    <div class="card-header card-header-action">
+                                        <div>
+                                            <h5>Time Reports</h5>
+                                            <p class="font-14 pt-5 text-dark">Last Updated 1 hour ago</p>
+                                        </div>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <button type="button" class="btn outlined bg-white text-grey py-5 px-10 m-0">Month</button>
+                                            <button type="button" class="btn button-shadow no-outline bg-white text-red py-5 px-10 mr-20">Week</button>
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-md-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pb-5">
+                                        <div class="hk-legend-wrap mb-20">
+                                            <div class="hk-legend">
+                                                <span class="text-violet font-weight-600 font-18">September</span>
+                                            </div>
+                                        </div>
+                                        <div id="m_chart_2" class="echart" style="height: 210px;"></div>
+                                        <div class="d-flex font-12 bg-violet-dark-5 echart-bottom-text mt-5">
+                                            <div class="mr-auto">
+                                                <i class="fa fa-exclamation-triangle"></i>Attention falling short for September 2018
+                                            </div>
+                                            <div class="ml-auto">
+                                                <span class="badge text-white px-10 badge-light badge-pill badge-outline">Justify</span></div>
+                                            </div>
+                                        <p class="echart-p">You have</p>
+                                        <div class="d-flex card-action-wrap bg-red-light-5 text-red spacing-content">
+                                            <p class="mr-auto font-14 pt-5">Meeting With RK Groups Clients</p>
+                                            <div class="avatar-group avatar-group-sm avatar-group-overlapped pr-10 mr-10 my-0">
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <span class="avatar-text avatar-text-green rounded-circle"><span class="initial-wrap"><span>GR</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>            
+                                            <div class="inline-block dropdown pt-5">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-md-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Remind me in 5mins</a>
+                                                    <a class="dropdown-item" href="#">Remind me in 10mins</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex card-action-wrap bg-purple-light-5 text-purple spacing-content">
+                                            <p class="mr-auto font-14 pt-5">4 Call Backs</p>
+                                            <div class="avatar-group avatar-group-sm avatar-group-overlapped pr-10 mr-10 my-0">
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                                <div class="avatar">
+                                                    <span class="avatar-text avatar-text-green rounded-circle"><span class="initial-wrap"><span>GR</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>            
+                                            <div class="inline-block dropdown pt-5">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-md-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Remind me in 5mins</a>
+                                                    <a class="dropdown-item" href="#">Remind me in 10mins</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex card-action-wrap bg-blue-light-5 text-blue spacing-content">
+                                            <p class="mr-auto font-14 pt-5">You have a visitor at the reception</p>
+                                            <div class="avatar-group avatar-group-sm avatar-group-overlapped pr-10 mr-10 my-0">
+                                                <div class="avatar">
+                                                    <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                            </div>            
+                                            <div class="inline-block dropdown pt-5">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-md-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Remind me in 5mins</a>
+                                                    <a class="dropdown-item" href="#">Remind me in 10mins</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p class="echart-p">UpComing</p>
+                                        <div class="hk-legend">
+                                            <div class="pb-10">
+                                                <div class="custom-control custom-radio radio-danger">
+                                                    <input type="radio" id="customRadio6" name="customRadio6" checked class="custom-control-input">
+                                                    <label class="custom-control-label font-14 text-dark" for="customRadio6">Project Redesign</label>
+                                                </div>
+                                                <div class="ml-25 pa-0">
+                                                    <p class="font-14">@3.35pm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-10">
+                                                <div class="custom-control custom-radio radio-success">
+                                                    <input type="radio" id="customRadio7" name="customRadio7" checked class="custom-control-input">
+                                                    <label class="custom-control-label font-14 text-dark" for="customRadio7">Call with Oluwaseun</label>
+                                                </div>
+                                                <div class="ml-25 pa-0">
+                                                    <p class="font-14">@3.35pm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-10">
+                                                <div class="custom-control custom-radio radio-pink">
+                                                    <input type="radio" id="customRadio8" name="customRadio8" checked class="custom-control-input">
+                                                    <label class="custom-control-label font-14 text-dark" for="customRadio8">App bug fixing</label>
+                                                </div>
+                                                <div class="ml-25 pa-0">
+                                                    <p class="font-14">@3.35pm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-10">
+                                                <div class="custom-control custom-radio radio-warning">
+                                                    <input type="radio" id="customRadio9" name="customRadio9" checked class="custom-control-input">
+                                                    <label class="custom-control-label font-14 text-dark" for="customRadio9">Meeting with the group</label>
+                                                </div>
+                                                <div class="ml-25 pa-0">
+                                                    <p class="font-14">@3.35pm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-10">
+                                                <div class="custom-control custom-radio radio-sky">
+                                                    <input type="radio" id="customRadio10" name="customRadio10" checked class="custom-control-input">
+                                                    <label class="custom-control-label font-14 text-dark" for="customRadio10">Mobile App Development</label>
+                                                </div>
+                                                <div class="ml-25 pa-0">
+                                                    <p class="font-14">@3.35pm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="card card-refresh">
+                                    <div class="card-header card-header-action">
+                                        <h6>Team Members</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0 mt-5">
+                                                        <div>
+                                                            <p class="text-dark ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Software Developer</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0 mt-5">
+                                                        <div>
+                                                            <p class="text-dark ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Software Developer</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0 mt-5">
+                                                        <div>
+                                                            <p class="text-dark ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Marketing Manager</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0 mt-5">
+                                                        <div>
+                                                            <p class="text-dark ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Social Media Manager</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-25">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group-lg">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0 mt-5">
+                                                        <div>
+                                                            <p class="text-dark ml-10 font-weight-600">Pavan Kumar</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-12 ml-10">Digital Marketer</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <a class="impt-href" href="#">View All<span style="position: relative; top: 8px;"><i class="material-icons">arrow_right_alt</i></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-refresh">
+                                    <div class="refresh-container">
+                                        <div class="loader-pendulums"></div>
+                                    </div>
+                                    <div class="card-header card-header-action">
+                                        <h6>Recent Activities</h6>
+                                    </div>
+                                    <div class="card-body pa-20">
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span>RD</span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <div class="pb-20">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span><i class="ion ion-md-add"></i></span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hk-legend pb-0">
+                                            <div class="pb-0">
+                                                <div class="d-flex">
+                                                    <div class="avatar-group avatar-group">
+                                                        <div class="avatar">
+                                                            <span class="avatar-text avatar-text-inv-seun rounded-circle"><span class="initial-wrap"><span><i class="ion ion-md-add"></i></span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pa-0">
+                                                        <div>
+                                                            <p class="text-dark ml-5">Jenna enclosed a doc</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="font-14 ml-5">1 min ago</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8" style="position: absolute; bottom: 45px; left: 383px;">
+                                <div class="card card-refresh">
+                                    <div class="refresh-container">
+                                        <div class="loader-pendulums"></div>
+                                    </div>
+                                    <div class="card-header pb-0">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6>To Do List</h6>
+                                                <small class="m-0 pa-0">List of your next task to complete</small>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-blue px-5 py-0 font-12 rounded-50">Add Task</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pa-20">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="custom-control custom-checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1">Schedule meeting with</label>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm mr-40 mb-20">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-indigo rounded-circle"><span class="initial-wrap"><span>IN</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn bg-green-light-1 text-white py-0 px-5 font-12">Done</button>
+                                                <button type="button" class="btn bg-red-light-1 text-white py-0 px-5 font-12">Delete</button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="custom-control custom-checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                    <label class="custom-control-label" for="customCheck2">Schedule meeting with</label>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm mr-40 mb-20">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-indigo rounded-circle"><span class="initial-wrap"><span>IN</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn bg-green-light-1 text-white py-0 px-5 font-12">Done</button>
+                                                <button type="button" class="btn bg-red-light-1 text-white py-0 px-5 font-12">Delete</button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="custom-control custom-checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                                    <label class="custom-control-label" for="customCheck3">Schedule meeting with</label>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm mr-40 mb-20">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-indigo rounded-circle"><span class="initial-wrap"><span>IN</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn bg-green-light-1 text-white py-0 px-5 font-12">Done</button>
+                                                <button type="button" class="btn bg-red-light-1 text-white py-0 px-5 font-12">Delete</button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="custom-control custom-checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                                    <label class="custom-control-label" for="customCheck4">Schedule meeting with</label>
+                                                </div>
+                                                <div class="avatar-group avatar-group-sm mr-40 mb-10">
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                    <div class="avatar">
+                                                        <span class="avatar-text avatar-text-indigo rounded-circle"><span class="initial-wrap"><span>IN</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn bg-green-light-1 text-white py-0 px-5 font-12">Done</button>
+                                                <button type="button" class="btn bg-red-light-1 text-white py-0 px-5 font-12">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+            
+            <!-- Footer -->
+            <div class="hk-footer-wrap container">
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <p>Pampered by<a href="https://hencework.com/" class="text-dark" target="_blank">Gradrey Network</a> © 2019</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <p class="d-inline-block">Follow us</p>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- /Footer -->
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="dist/js/feather.min.js"></script>
+
+    <!-- Toggles JavaScript -->
+    <script src="vendors/jquery-toggles/toggles.min.js"></script>
+    <script src="dist/js/toggle-data.js"></script>
+	
+	<!-- Counter Animation JavaScript -->
+	<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
+	
+	<!-- Easy pie chart JS -->
+    <script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+	
+	<!-- Sparkline JavaScript -->
+    <script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+    <script src="vendors/raphael/raphael.min.js"></script>
+    <script src="vendors/morris.js/morris.min.js"></script>
+   
+	<!-- EChartJS JavaScript -->
+    <script src="vendors/echarts/dist/echarts-en.min.js"></script>
+    
+	<!-- Peity JavaScript -->
+    <script src="vendors/peity/jquery.peity.min.js"></script>
+
+    <!-- Vector Maps JavaScript -->
+    <script src="vendors/vectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="dist/js/vectormap-data.js"></script>
+
+	<!-- Owl JavaScript -->
+    <script src="vendors/owl.carousel/dist/owl.carousel.min.js"></script>
+	
+	<!-- Toastr JS -->
+    <script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+   
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+    <script src="dist/js/linecharts-data.js"></script>
+	
+</body>
+
+</html>
